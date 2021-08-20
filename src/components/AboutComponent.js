@@ -2,28 +2,28 @@ import React from 'react';
 import { Breadcrumb, BreadcrumbItem, Card, CardBody, CardHeader, Media } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
-
-const RenderLeader = (props) => {
-    return (
-        <Media tag="li">
-            <Media left middle>
-                <Media object src={props.leader.image} alt={props.leader.name} />
+function RenderLeader({ leader }) {
+    return(
+        <div key={leader.id} className="col-12 mt-5">
+            <Media tag="li">
+                <Media left middle>
+                    <Media object src={leader.image} alt={leader.name} />
+                </Media>
+                <Media body className="ml-5">
+                    <Media heading>{leader.name}</Media>
+                    <p>{leader.description}</p>
+                </Media>
             </Media>
-
-            <Media body className="ml-5">
-                <Media heading>{props.leader.name}</Media>
-                <p>{props.leader.designation}</p>
-                <p>{props.leader.description}</p>
-            </Media>
-        </Media>
+        </div>
     );
 }
+
 
 function About(props) {
 
     const leaders = props.leaders.map((leader) => {
         return (
-            <React.Fragment> <RenderLeader leader={leader} /><br /></React.Fragment>
+            <RenderLeader leader={leader} />            
         );
     });
 
@@ -77,20 +77,23 @@ function About(props) {
                     </Card>
                 </div>
             </div>
+
+
             <div className="row row-content">
                 <div className="col-12">
                     <h2>Corporate Leadership</h2>
                 </div>
+                
                 <div className="col-12">
-                    <Media list>
-                        {leaders}
-                    </Media>
+                    <div className="row">
+                        <Media list>
+                            {leaders}
+                        </Media>
+                    </div>                    
                 </div>
             </div>
         </div>
     );
 }
 
-
-
-export default About;
+export default About;    
