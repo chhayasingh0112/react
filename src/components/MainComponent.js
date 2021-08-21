@@ -7,7 +7,7 @@ import Contact from './ContactComponent';
 import Header from './HeaderComponent';
 import Footer from './FooterComponent';
 import DishDetail from './DishdetailComponent';
-import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
+import { Switch, Route, Redirect, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux';
 
 const mapStateToProps = state => {
@@ -43,7 +43,7 @@ class Main extends Component {
         const AboutUsPage = () => {
             return (
                 <About
-                    leaders={this.state.leaders}
+                    leaders={this.props.leaders}
                 />
             );
         };

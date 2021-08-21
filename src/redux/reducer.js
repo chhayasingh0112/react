@@ -1,13 +1,13 @@
-import { COMMENTS } from '../shared/comments';
 import { DISHES } from '../shared/dishes';
-import { LEADERS } from '../shared/leaders';
+import { COMMENTS } from '../shared/comments';
 import { PROMOTIONS } from '../shared/promotions';
+import { LEADERS } from '../shared/leaders';
 
-export const intialState = {
-    comments: COMMENTS,
+export const initialState = {
     dishes: DISHES,
-    leaders: LEADERS,
+    comments: COMMENTS,
     promotions: PROMOTIONS,
+    leaders: LEADERS
 };
 
 export const Reducer = (state = initialState, action) => {
